@@ -18,6 +18,7 @@ export default function Home() {
         <RecentProjects />
         <Clients />
         <Experience />
+        <Experience />
         <Approach />
       </div>
     </main>
