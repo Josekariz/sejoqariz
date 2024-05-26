@@ -7,14 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="w-full pt-20 pb-10">
-      <div className="w-full absolute left-0 -bottom-72 min-h-96">
-        <img
-          src="/footer-grid.svg"
-          alt="grid"
-          className="w-full h-full opacity-50"
-        />
-      </div>
+    <footer id="contact" className="w-full mb-[100px] md:mb-5 pb-10">
       <div className="flex flex-col items-center ">
         <h1 className="heading lg:max-w-[45vw]">
           🚀 Ready to skyrocket <span className="text-purple">your</span>{" "}
@@ -33,7 +26,7 @@ const Footer = () => {
         </a>
       </div>
 
-      <div className="flex mt-16 md:flex-row flex-col justify-evenly items-center">
+      <div className="flex mt-16 md:flex-row flex-col sm:justify-evenly md:justify-between items-center">
         <p className="md:text-base text-sm md:font-normal font-light">
           Copyright &copy; {currentYear} Joseph
         </p>
