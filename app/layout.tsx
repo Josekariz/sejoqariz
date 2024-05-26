@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Sejoqariz",
   description: "Stylish and Modern Portfolio",
+  icons: {
+    icon: "/next.svg",
+  },
 };
 
 export default function RootLayout({
