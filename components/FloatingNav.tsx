@@ -51,8 +51,18 @@ export const FloatingNav = ({
           opacity: visible ? 1 : 0,
         }}
         transition={{
-          duration: 0.3,
-          ease: "easeInOut",
+          duration: 0.2, 
+          opacity: {
+            duration: 0.15, 
+          },
+          y: {
+            type: "spring", 
+            stiffness: 300,
+            damping: 30,
+          },
+        }}
+        style={{
+          willChange: "transform", 
         }}
         className={cn(
           // Base styles
@@ -60,11 +70,14 @@ export const FloatingNav = ({
           // Container width and padding adjustments
           "w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] xl:w-[60%] max-w-5xl",
           "px-4 sm:px-6 md:px-8 py-3 sm:py-4",
-          // Visual styles
+          // Visual styles with optimized blur
           "rounded-2xl",
-          "bg-white/70 dark:bg-gray-900/70 backdrop-blur-md",
+          "bg-white/70 dark:bg-gray-900/70",
+          "backdrop-blur-[8px]", 
           "border border-gray-200 dark:border-gray-800",
-          "shadow-[0px_2px_15px_-3px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]",
+          "shadow-[0px_2px_15px_-3px_rgba(0,0,0,0.1)]",
+          // Hardware acceleration class
+          "transform-gpu",
           className
         )}
       >
@@ -91,10 +104,11 @@ export const FloatingNav = ({
                 "text-neutral-600 dark:text-neutral-200",
                 "hover:text-neutral-900 dark:hover:text-neutral-50",
                 "hover:bg-black/5 dark:hover:bg-white/5",
-                // Transition
-                "transition-all duration-200",
+                // Optimized transition
+                "transition-colors duration-150",
                 // Special styles for Download CV
-                navItem.name === "Download CV" && "bg-black/5 dark:bg-white/5"
+                navItem.name === "Download CV" &&
+                "bg-black/5 dark:bg-white/5 font-semibold"
               )}
             >
               {navItem.icon && (
