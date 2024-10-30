@@ -1,9 +1,15 @@
 // Nav links
+
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
+  { 
+    name: "Download CV", 
+    link: "https://docs.google.com/document/d/1xlyT_Ds-GRIb1Wu8Zl7i4Q80Bmmz8fvsbu8Bk8tLZ_g/edit?usp=sharing",
+    
+  }
 ];
 
 //Grid items for bentogrid about section
