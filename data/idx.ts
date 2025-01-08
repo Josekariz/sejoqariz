@@ -216,6 +216,6 @@ export const socialMedia = [
   {
     id: 3,
     img: "/link.svg",
-    link: "www.linkedin.com/in/sejoqariz",
+    link: "https://www.linkedin.com/in/sejoqariz/",
   },
 ];
