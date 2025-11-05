@@ -211,7 +211,7 @@ export const socialMedia = [
   {
     id: 2,
     img: "/twit.svg",
-    link: "https://twitter.com/sejokariz",
+    link: "https://twitter.com/sejoqariz",
   },
   {
     id: 3,
