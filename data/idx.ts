@@ -109,7 +109,7 @@ export const projects = [
     id: 1,
     title: "Nochase: Healing starts with awareness",
     des: "A wellness app offering tools for individuals with anxious attachment to manage triggers and nurture self-worth.",
-    img: "https://github.com/Josekariz/nochase/blob/main/public/image.png",
+    img: "https://raw.githubusercontent.com/Josekariz/sejoqariz/refs/heads/main/data/image.png",
     iconLists: ["/re.svg", "/js.svg", "/tail.svg", "/ex.svg"],
     link: "https://github.com/Josekariz/nochase",
   },
