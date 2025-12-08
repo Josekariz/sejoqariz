@@ -81,7 +81,7 @@ export const gridItems = [
 
 export const projects = [
   {
-    id: 1,
+    id: 4,
     title: "Apple Website Clone",
     des: "This project is a clone of Apple's iPhone 15 Pro website, built using React.js and TailwindCSS. It showcases advanced animations and 3D model rendering techniques, using GSAP and Three.js to provide an immersive user experience.",
     img: "https://github.com/user-attachments/assets/47ee21bb-5e91-4834-90b3-2b6fc5d6e643",
@@ -106,12 +106,12 @@ export const projects = [
   },
 
   {
-    id: 4,
-    title: "Autolib: Where Car Passion Meets Real Stories",
-    des: "Discover authentic car stories and experiences from real owners on Autolib, transcending traditional car reviews.",
-    img: "https://raw.githubusercontent.com/Josekariz/reactautolib/main/Screenshot%20(39).png",
+    id: 1,
+    title: "Nochase: Healing starts with awareness",
+    des: "A wellness app offering tools for individuals with anxious attachment to manage triggers and nurture self-worth.",
+    img: "https://github.com/Josekariz/nochase/blob/main/public/image.png",
     iconLists: ["/re.svg", "/js.svg", "/tail.svg", "/ex.svg"],
-    link: "https://github.com/Josekariz/reactautolib",
+    link: "https://github.com/Josekariz/nochase",
   },
   {
     id: 3,
