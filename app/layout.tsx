@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Joseph", url: "https://github.com/Josekariz" }],
   creator: "Joseph",
   icons: {
-    icon: "/next.svg",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
   openGraph: {
     type: "website",
