@@ -7,9 +7,9 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
-      // Noticeable smoothing without feeling stuck
-      lerp: 0.1,
-      duration: 1.2,
+      // Lower lerp = silkier / more glide
+      lerp: 0.07,
+      duration: 1.4,
       wheelMultiplier: 1,
       touchMultiplier: 1.2,
       smoothWheel: true,
