@@ -7,7 +7,7 @@ export const navItems = [
   { name: "Contact", link: "#contact" },
   {
     name: "Download CV",
-    link: "https://docs.google.com/document/d/1xlyT_Ds-GRIb1Wu8Zl7i4Q80Bmmz8fvsbu8Bk8tLZ_g/edit?usp=sharing",
+    link: "https://docs.google.com/document/d/1ZSgPXzWG0TdPAdTiJYZ0MQYtmhpoExU96rKy6cmC0Os/edit?usp=sharing",
 
   }
 ];
