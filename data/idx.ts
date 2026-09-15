@@ -5,10 +5,10 @@ export const navItems = [
   { name: "Projects", link: "#projects" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
-  { 
-    name: "Download CV", 
+  {
+    name: "Download CV",
     link: "https://docs.google.com/document/d/1xlyT_Ds-GRIb1Wu8Zl7i4Q80Bmmz8fvsbu8Bk8tLZ_g/edit?usp=sharing",
-    
+
   }
 ];
 
@@ -78,62 +78,50 @@ export const gridItems = [
 ];
 
 //Projects done
-
 export const projects = [
   {
-    id: 4,
-    title: "Apple Website Clone",
-    des: "This project is a clone of Apple's iPhone 15 Pro website, built using React.js and TailwindCSS. It showcases advanced animations and 3D model rendering techniques, using GSAP and Three.js to provide an immersive user experience.",
-    img: "https://github.com/user-attachments/assets/47ee21bb-5e91-4834-90b3-2b6fc5d6e643",
-    iconLists: ["/next.svg", "/js.svg", "/tail.svg" ],
-    link: "https://github.com/Josekariz/apple-website-clone",
+    id: 1,
+    title: "What Beats It?",
+    des: "A playful escalation game: start with Rock, answer “What beats it?”, and keep the chain going. Each deliberate answer is judged by a Vercel serverless function that calls the Gemini API.",
+    img: "https://github.com/user-attachments/assets/0ac49434-7b12-4d01-9454-009744005ecd",
+    iconLists: ["/next.svg", "/js.svg", "/tail.svg", "/ex.svg"],
+    link: "https://github.com/Josekariz/what-beats-it",
   },
   {
     id: 2,
-    title: "Meal Finder App",
-    des: "Welcome to the Meal Finder App! This application allows users to discover a variety of recipes, including the meal of the day, and provides detailed information about each recipe.",
-    img: "https://github.com/user-attachments/assets/37d80af6-060a-4352-819d-ba9f76326ccc",
-    iconLists: ["/re.svg", "/js.svg", "/tail.svg"],
-    link: "https://github.com/Josekariz/simple-recipe",
-  },
-  {
-    id: 5,
-    title: "🍹 Cocktail Explorer 🥂",
-    des: "Welcome to Cocktail Explorer! 🌟 A web app designed for cocktail lovers, allowing you to search, explore, and discover new cocktails! 🍸 Whether you're into fancy alcoholic beverages or prefer something non-alcoholic, we've got you covered! 🧃",
-    img: "https://github.com/user-attachments/assets/c590c0a1-094e-4302-a362-db838d3ae282",
-    iconLists: ["/re.svg", "/js.svg", "/tail.svg"],
-    link: "https://github.com/Josekariz/cocktail-app",
-  },
-
-  {
-    id: 1,
-    title: "Nochase: Healing starts with awareness",
-    des: "A wellness app offering tools for individuals with anxious attachment to manage triggers and nurture self-worth.",
-    img: "https://raw.githubusercontent.com/Josekariz/sejoqariz/refs/heads/main/data/image.png",
-    iconLists: ["/re.svg", "/js.svg", "/tail.svg", "/ex.svg"],
-    link: "https://github.com/Josekariz/nochase",
-  },
-  {
-    id: 3,
     title: "AnimeVault Web App",
     des: "Welcome to AnimeVault, featuring Server Actions, Infinite Scrolling, and Framer Motion Animations to create a dynamic and engaging user experience.",
     img: "https://github.com/Josekariz/aniVault/assets/108508143/b84d53a9-b578-42ba-8801-f3b47ff95c61",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     link: "https://github.com/Josekariz/aniVault",
   },
-  
-  
-  
   {
-    id: 6,
-    title: "Aesthetic-color-picker",
-    des: "Discover this React application enabling you to customize website aesthetics with background, text, and button colors. It offers live previews and color pickers for seamless customization.",
-    img: "https://github.com/Josekariz/Aesthetic-color-picker/assets/108508143/03a2672a-e5c6-4d47-93ae-3381bb015172",
+    id: 3,
+    title: "Gidevtech Innovations Website",
+    des: "A modern, responsive website for Gidevtech Innovations, built with React.js and TailwindCSS. It showcases the company's services, projects, and team.",
+    img: "https://github.com/user-attachments/assets/d384138e-e300-4c24-abed-2115cd295785",
     iconLists: ["/re.svg", "/js.svg", "/tail.svg"],
-    link: "https://github.com/Josekariz/Aesthetic-color-picker",
+    link: "https://gidevtech.com/",
   },
-  
+  {
+    id: 4,
+    title: "Ortus Flore",
+    des: "Led development of core client-facing dashboards for Ortus Flore, a live production platform, using React and Tailwind CSS. Focused on optimizing cross-device responsiveness for a real-world user base.",
+    img: "https://github.com/user-attachments/assets/197766c9-759a-44f9-a8c9-6e9edf18a835",
+    iconLists: ["/re.svg", "/js.svg", "/tail.svg"],
+    link: "https://ortusflore.com/",
+  },
+
+  {
+    id: 5,
+    title: "Apple Website Clone",
+    des: "This project is a clone of Apple's iPhone 15 Pro website, built using React.js and TailwindCSS. It showcases advanced animations and 3D model rendering techniques, using GSAP and Three.js to provide an immersive user experience.",
+    img: "https://github.com/user-attachments/assets/47ee21bb-5e91-4834-90b3-2b6fc5d6e643",
+    iconLists: ["/next.svg", "/js.svg", "/tail.svg"],
+    link: "https://github.com/Josekariz/apple-website-clone",
+  },
 ];
+
 
 // Testimonials
 export const testimonials = [
