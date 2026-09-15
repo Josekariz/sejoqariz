@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { IoCopyOutline } from "react-icons/io5";
 import dynamic from "next/dynamic";
 
@@ -99,12 +98,10 @@ export const BentoGridItem = ({
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
-            <Image
+            <img
               src={img}
               alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className={cn(imgClassName, "object-cover object-center")}
+              className={cn(imgClassName, "object-cover object-center ")}
             />
           )}
         </div>
@@ -114,11 +111,9 @@ export const BentoGridItem = ({
           } `}
         >
           {spareImg && (
-            <Image
+            <img
               src={spareImg}
               alt=""
-              width={500}
-              height={300}
               className="object-cover object-center w-full h-full"
             />
           )}
