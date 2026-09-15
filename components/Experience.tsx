@@ -14,8 +14,9 @@ const Experience = () => {
         {workExperience.map(({ thumbnail, title, id, desc }) => (
           <Button
             key={id}
+            as="div"
             borderRadius="1.7rem"
-            duration={Math.floor(Math.random() * 10000 + 10000)}
+            duration={10000 + id * 2500}
             className="flex-1 text-white border-neutral-200 dark:border-slate-800 cursor-default"
           >
             <div className="flex lg:flex-row flex-col lg:items-center p-3 md:p-5 lg:p-10 gap-2">

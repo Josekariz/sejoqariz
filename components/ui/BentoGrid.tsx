@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import dynamic from "next/dynamic";
 
 import { cn } from "@/utils/cn";
 
@@ -9,8 +8,6 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import { GlobeDemo } from "./GridGlobe";
 import MagicButton from "../MagicButton";
 import { contactEmail, techStackLists } from "@/data/idx";
-
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 //BentoGrid
 export const BentoGrid = ({
@@ -31,6 +28,48 @@ export const BentoGrid = ({
     </div>
   );
 };
+
+const CopyEmailCTA = memo(function CopyEmailCTA() {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = "/confetti.gif";
+  }, []);
+
+  const handleCopy = () => {
+    void navigator.clipboard.writeText(contactEmail);
+    setCopied(true);
+  };
+
+  return (
+    <div className="mt-5 relative">
+      <div className="absolute -bottom-5 right-0">
+        {copied && (
+          // Lightweight GIF avoids parsing ~600KB Lottie JSON on click (INP).
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src="/confetti.gif"
+            alt=""
+            width={400}
+            height={200}
+            className="pointer-events-none"
+          />
+        )}
+      </div>
+
+      <MagicButton
+        title={copied ? "Email Copied! ✔" : "Copy my email"}
+        icon={<IoCopyOutline />}
+        position="left"
+        handleClick={handleCopy}
+        otherClasses="!bg-[#161A31]"
+      />
+    </div>
+  );
+});
+
+const MemoGlobeDemo = memo(GlobeDemo);
 
 //BentoGridItem
 export const BentoGridItem = ({
@@ -55,34 +94,6 @@ export const BentoGridItem = ({
   const leftLists = techStackLists.left;
   const rightLists = techStackLists.right;
 
-  const [copied, setCopied] = useState(false);
-  const [animationData, setAnimationData] = useState<object | null>(null);
-
-  useEffect(() => {
-    if (!copied || animationData) return;
-    let cancelled = false;
-    import("@/data/confetti.json").then((mod) => {
-      if (!cancelled) setAnimationData(mod.default ?? mod);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [copied, animationData]);
-
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(contactEmail);
-    setCopied(true);
-  };
-
   return (
     <div
       className={cn(
@@ -98,6 +109,7 @@ export const BentoGridItem = ({
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
           {img && (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={img}
               alt=""
@@ -111,6 +123,7 @@ export const BentoGridItem = ({
           } `}
         >
           {spareImg && (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={spareImg}
               alt=""
@@ -140,7 +153,7 @@ export const BentoGridItem = ({
             {title}
           </div>
 
-          {id === 2 && <GlobeDemo />}
+          {id === 2 && <MemoGlobeDemo />}
 
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
@@ -171,23 +184,7 @@ export const BentoGridItem = ({
             </div>
           )}
 
-          {id === 6 && (
-            <div className="mt-5 relative">
-              <div className="absolute -bottom-5 right-0">
-                {copied && animationData && (
-                  <Lottie options={defaultOptions} height={200} width={400} />
-                )}
-              </div>
-
-              <MagicButton
-                title={copied ? "Email Copied! ✔" : "Copy my email"}
-                icon={<IoCopyOutline />}
-                position="left"
-                handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
-              />
-            </div>
-          )}
+          {id === 6 && <CopyEmailCTA />}
         </div>
       </div>
     </div>
