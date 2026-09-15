@@ -2,7 +2,7 @@
 
 Welcome to **sejoqariz** – a stunning portfolio built with modern web technologies for a sleek and visually appealing user experience.
 
-![Project Screenshot](public/demo.png)
+![Project Screenshot](public/demo.webp)
 
 
 ## 🚀 Technologies Used

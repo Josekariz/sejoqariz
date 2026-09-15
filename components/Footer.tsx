@@ -1,7 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import MagicButton from "./MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
-import { socialMedia } from "@/data/idx";
+import { contactEmail, socialMedia } from "@/data/idx";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,10 +15,10 @@ const Footer = () => {
           digital game?
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
-          write Reach out to me today, and together, let&apos;s bring your goals
-          to life.
+          Reach out to me today, and together, let&apos;s bring your goals to
+          life.
         </p>
-        <a href="mailto:sejokarizz@gmail.com">
+        <a href={`mailto:${contactEmail}`}>
           <MagicButton
             title="Let's Get in Touch"
             icon={<FaLocationArrow />}
@@ -36,8 +37,8 @@ const Footer = () => {
               key={id}
               className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
             >
-              <a href={link} target="_blank">
-                <img src={img} alt="socials" width={20} height={20} />
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <Image src={img} alt="socials" width={20} height={20} />
               </a>
             </div>
           ))}

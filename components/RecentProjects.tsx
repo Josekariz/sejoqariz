@@ -1,38 +1,43 @@
 import { projects } from "@/data/idx";
 import React from "react";
+import Image from "next/image";
 import { PinContainer } from "./ui/PinContainer";
 import { FaLocationArrow } from "react-icons/fa6";
 
 const RecentProjects = () => {
   return (
-    // outer parent div
     <div className="py-20" id="projects">
       <h1 className="heading">
         A small collection of <span className="text-purple">my projects</span>
       </h1>
 
-      {/* Projects div */}
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
         {projects.map(({ id, title, des, img, iconLists, link }) => (
-          
-          // Map data on single card
           <div
             key={id}
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
           >
-            {/* Add pin container hover style from acertenity */}
             <PinContainer title={link} href={link}>
-
               <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
-
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <img src="/bg.png" alt="bg-img" />
+                  <Image
+                    src="/bg.webp"
+                    alt=""
+                    fill
+                    sizes="384px"
+                    className="object-cover"
+                  />
                 </div>
-                {/* Project image */}
-                <img src={img} alt={title} className="z-10 absolute bottom-0" />
+                <Image
+                  src={img}
+                  alt={title}
+                  width={400}
+                  height={300}
+                  className="z-10 absolute bottom-0 w-auto h-auto max-h-full"
+                />
               </div>
 
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
@@ -41,17 +46,21 @@ const RecentProjects = () => {
               <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
                 {des}
               </p>
-              {/* map over tech stack icons */}
               <div className="flex  items-center justify-between mt-7 mb-3">
                 <div className="flex items-center">
                   {iconLists.map((icon, idx) => (
                     <div
                       key={icon}
-                      className="border border-white/[0.2 rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                      // Add style to make icons appear on top of each other
+                      className="border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex items-center justify-center"
                       style={{ transform: `translateX(-${5 * idx}px)` }}
                     >
-                      <img src={icon} alt={icon} className="p-2" />
+                      <Image
+                        src={icon}
+                        alt=""
+                        width={24}
+                        height={24}
+                        className="p-2 w-full h-full"
+                      />
                     </div>
                   ))}
                 </div>
@@ -59,7 +68,8 @@ const RecentProjects = () => {
                   <a
                     className="flex lg:text-xl md:text-xs text-sm  text-purple"
                     href={link}
-                    target="blank"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Check live site
                   </a>
