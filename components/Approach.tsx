@@ -1,8 +1,14 @@
 "use client";
 import React from "react";
+import dynamic from "next/dynamic";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { CanvasRevealEffect } from "@/components/ui/CanvasRevealEffect";
+
+const CanvasRevealEffect = dynamic(
+  () =>
+    import("@/components/ui/CanvasRevealEffect").then((m) => m.CanvasRevealEffect),
+  { ssr: false }
+);
 
 const Approach = () => {
   return (
@@ -12,9 +18,6 @@ const Approach = () => {
       </h1>
 
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
-        {/* Render externity card having the canvas reveal effect*/}
-
-        {/* Card 1 */}
         <Card
           title="📝 Planning & Analysis 🔍"
           icon={<AceternityIcon order="Phase 1" />}
@@ -26,7 +29,6 @@ const Approach = () => {
           />
         </Card>
 
-        {/* Card2 */}
         <Card
           title="🛠️ Design & Development 💻"
           icon={<AceternityIcon order="Phase 2" />}
@@ -41,11 +43,9 @@ const Approach = () => {
             ]}
             dotSize={2}
           />
-          {/* Radial gradient for the cute fade */}
           <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
         </Card>
 
-        {/* Card 3 */}
         <Card
           title="✅ Testing & Deployment 🚀"
           icon={<AceternityIcon order="Phase 3" />}
@@ -126,7 +126,7 @@ const AceternityIcon = ({ order }: { order: string }) => {
   );
 };
 
-export const Icon = ({ className, ...rest }: any) => {
+export const Icon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -6,10 +6,50 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sejoqariz",
-  description: "Stylish and Modern Portfolio",
+  metadataBase: new URL("https://sejoqariz.vercel.app"),
+  title: {
+    default: "Sejoqariz | Joseph — Frontend Developer",
+    template: "%s | Sejoqariz",
+  },
+  description:
+    "Joseph (Sejoqariz) — Frontend developer building sleek, animated web experiences with Next.js, React, and modern UI.",
+  keywords: [
+    "Joseph",
+    "Sejoqariz",
+    "Frontend Developer",
+    "Next.js",
+    "React",
+    "Portfolio",
+  ],
+  authors: [{ name: "Joseph", url: "https://github.com/Josekariz" }],
+  creator: "Joseph",
   icons: {
     icon: "/next.svg",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://sejoqariz.vercel.app",
+    siteName: "Sejoqariz",
+    title: "Sejoqariz | Joseph — Frontend Developer",
+    description:
+      "Frontend developer building sleek, animated web experiences with Next.js, React, and modern UI.",
+    images: [
+      {
+        url: "/demo.webp",
+        width: 1200,
+        height: 630,
+        alt: "Sejoqariz portfolio preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sejoqariz | Joseph — Frontend Developer",
+    description:
+      "Frontend developer building sleek, animated web experiences with Next.js, React, and modern UI.",
+    creator: "@sejoqariz",
+    images: ["/demo.webp"],
   },
 };
 
