@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
+import { Color } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -118,7 +118,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     let points = [];
     for (let i = 0; i < arcs.length; i++) {
       const arc = arcs[i];
-      const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
+      const rgb = hexToRgb(arc.color) ?? { r: 59, g: 130, b: 246 };
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
@@ -234,39 +234,50 @@ export function WebGLRendererConfig() {
   const { gl, size } = useThree();
 
   useEffect(() => {
-    gl.setPixelRatio(window.devicePixelRatio);
+    gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, []);
+  }, [gl, size.height, size.width]);
 
   return null;
 }
 
 export function World(props: WorldProps) {
   const { globeConfig } = props;
-  const scene = new Scene();
-  scene.fog = new Fog(0xffffff, 400, 2000);
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
+    <Canvas
+      camera={{
+        fov: 50,
+        aspect,
+        near: 180,
+        far: 1800,
+        position: [0, 0, cameraZ],
+      }}
+      // Let page/Lenis scroll through; auto-rotate still runs.
+      style={{ pointerEvents: "none" }}
+      gl={{ antialias: true, alpha: true }}
+    >
+      <fog attach="fog" args={["#ffffff", 400, 2000]} />
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
         color={globeConfig.directionalLeftLight}
-        position={new Vector3(-400, 100, 400)}
+        position={[-400, 100, 400]}
       />
       <directionalLight
         color={globeConfig.directionalTopLight}
-        position={new Vector3(-200, 500, 200)}
+        position={[-200, 500, 200]}
       />
       <pointLight
         color={globeConfig.pointLight}
-        position={new Vector3(-200, 500, 200)}
+        position={[-200, 500, 200]}
         intensity={0.8}
       />
       <Globe {...props} />
       <OrbitControls
         enablePan={false}
         enableZoom={false}
+        enableRotate={false}
         minDistance={cameraZ}
         maxDistance={cameraZ}
         autoRotateSpeed={1}
