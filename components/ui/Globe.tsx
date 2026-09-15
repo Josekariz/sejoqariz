@@ -2,7 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Color } from "three";
 import ThreeGlobe from "three-globe";
-import { useFrame, useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
+import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
 
 declare module "@react-three/fiber" {
@@ -70,15 +71,6 @@ let numbersOfRings = [0];
 
 function isFinitePoint(lat: number, lng: number) {
   return Number.isFinite(lat) && Number.isFinite(lng);
-}
-
-function AutoRotate({ speed = 0.0025 }: { speed?: number }) {
-  const { scene } = useThree();
-  useFrame(() => {
-    const globe = scene.getObjectByName("sejo-globe");
-    if (globe) globe.rotation.y += speed;
-  });
-  return null;
 }
 
 export function Globe({ globeConfig, data }: WorldProps) {
@@ -231,12 +223,9 @@ export function Globe({ globeConfig, data }: WorldProps) {
   }, [globeData]);
 
   return (
-    <threeGlobe
-      ref={(node) => {
-        globeRef.current = node;
-        if (node) node.name = "sejo-globe";
-      }}
-    />
+    <>
+      <threeGlobe ref={globeRef} />
+    </>
   );
 }
 
@@ -246,7 +235,7 @@ export function WebGLRendererConfig() {
   useEffect(() => {
     gl.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     gl.setSize(size.width, size.height);
-    gl.setClearColor(0x000000, 0);
+    gl.setClearColor(0xffaaff, 0);
   }, [gl, size.height, size.width]);
 
   return null;
@@ -263,15 +252,9 @@ export function World(props: WorldProps) {
         far: 1800,
         position: [0, 0, cameraZ],
       }}
-      style={{ pointerEvents: "none", width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "100%" }}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       dpr={[1, 1.5]}
-      // R3F attaches events to the parent by default — disconnect so raycasts
-      // never hit incomplete three-globe buffers (NaN bounding spheres).
-      onCreated={({ events, gl }) => {
-        events.disconnect?.();
-        gl.domElement.style.pointerEvents = "none";
-      }}
     >
       <fog attach="fog" args={["#ffffff", 400, 2000]} />
       <WebGLRendererConfig />
@@ -290,7 +273,16 @@ export function World(props: WorldProps) {
         intensity={0.8}
       />
       <Globe {...props} />
-      <AutoRotate speed={0.0025} />
+      <OrbitControls
+        enablePan={false}
+        enableZoom={false}
+        minDistance={cameraZ}
+        maxDistance={cameraZ}
+        autoRotateSpeed={1}
+        autoRotate={true}
+        minPolarAngle={Math.PI / 3.5}
+        maxPolarAngle={Math.PI - Math.PI / 3}
+      />
     </Canvas>
   );
 }
