@@ -7,11 +7,11 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
-      // Lower lerp = silkier / more glide
-      lerp: 0.07,
-      duration: 1.4,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.2,
+      // Keep coast-to-stop, but move farther per flick so it doesn't feel sluggish
+      lerp: 0.09,
+      duration: 1.25,
+      wheelMultiplier: 1.2,
+      touchMultiplier: 1.35,
       smoothWheel: true,
       syncTouch: false,
       anchors: true,

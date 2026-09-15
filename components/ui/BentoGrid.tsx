@@ -31,14 +31,22 @@ export const BentoGrid = ({
 
 const CopyEmailCTA = memo(function CopyEmailCTA() {
   const [copied, setCopied] = useState(false);
+  const [burstKey, setBurstKey] = useState(0);
 
   useEffect(() => {
     const img = new window.Image();
     img.src = "/confetti.gif";
   }, []);
 
+  useEffect(() => {
+    if (!copied) return;
+    const timeout = window.setTimeout(() => setCopied(false), 2500);
+    return () => window.clearTimeout(timeout);
+  }, [copied]);
+
   const handleCopy = () => {
     void navigator.clipboard.writeText(contactEmail);
+    setBurstKey((k) => k + 1);
     setCopied(true);
   };
 
@@ -46,9 +54,9 @@ const CopyEmailCTA = memo(function CopyEmailCTA() {
     <div className="mt-5 relative">
       <div className="absolute -bottom-5 right-0">
         {copied && (
-          // Lightweight GIF avoids parsing ~600KB Lottie JSON on click (INP).
           // eslint-disable-next-line @next/next/no-img-element
           <img
+            key={burstKey}
             src="/confetti.gif"
             alt=""
             width={400}
