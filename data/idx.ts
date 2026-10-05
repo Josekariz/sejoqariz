@@ -88,6 +88,14 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
+    title: "Sticky Day",
+    des: "A whiteboard for your day. Type what you want to get done and AI splits it into sticky notes; work them with live timers, bin the finished ones, and at a time you choose the app writes you a short, friendly note about how the day went. Next.js, Supabase with row-level security, Vercel AI SDK with a Gemini → Groq fallback chain.",
+    img: "/projects/sticky-day.webp",
+    iconLists: ["/next.svg", "/ts.svg", "/tail.svg"],
+    link: "https://sticky-day.vercel.app",
+  },
+  {
+    id: 2,
     title: "What Beats It?",
     des: "A playful escalation game: start with Rock, answer “What beats it?”, and keep the chain going. Each deliberate answer is judged by a Vercel serverless function that calls the Gemini API.",
     img: "/projects/what-beats-it.webp",
@@ -95,7 +103,7 @@ export const projects = [
     link: "https://github.com/Josekariz/what-beats-it",
   },
   {
-    id: 2,
+    id: 3,
     title: "AnimeVault Web App",
     des: "Welcome to AnimeVault, featuring Server Actions, Infinite Scrolling, and Framer Motion Animations to create a dynamic and engaging user experience.",
     img: "/projects/animevault.webp",
@@ -103,7 +111,7 @@ export const projects = [
     link: "https://github.com/Josekariz/aniVault",
   },
   {
-    id: 3,
+    id: 4,
     title: "Gidevtech Innovations Website",
     des: "A modern, responsive website for Gidevtech Innovations, built with React.js and TailwindCSS. It showcases the company's services, projects, and team.",
     img: "/projects/gidevtech.webp",
@@ -111,16 +119,15 @@ export const projects = [
     link: "https://gidevtech.com/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Ortus Flore",
     des: "Led development of core client-facing dashboards for Ortus Flore, a live production platform, using React and Tailwind CSS. Focused on optimizing cross-device responsiveness for a real-world user base.",
     img: "/projects/ortusflore.webp",
     iconLists: ["/re.svg", "/js.svg", "/tail.svg"],
     link: "https://ortusflore.com/",
   },
-
   {
-    id: 5,
+    id: 6,
     title: "Apple Website Clone",
     des: "This project is a clone of Apple's iPhone 15 Pro website, built using React.js and TailwindCSS. It showcases advanced animations and 3D model rendering techniques, using GSAP and Three.js to provide an immersive user experience.",
     img: "/projects/apple-clone.webp",
@@ -128,7 +135,6 @@ export const projects = [
     link: "https://github.com/Josekariz/apple-website-clone",
   },
 ];
-
 // Testimonials
 export const testimonials = [
   {
